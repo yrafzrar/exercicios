@@ -1,0 +1,37 @@
+import time
+lista = []
+while True:
+    fazer = int(input("O que deseja fazer \n 1- Adiconar um item       2-Excluir item        3-Ver lista\n"))
+    if fazer == 1:
+        while True:
+            itemnv = input("Escreva o novo item")
+            lista.append(itemnv)
+            print(lista)
+            cont = int(input("Deseja adicionar mais um item?\n 1-Sim 2-Não"))
+            if cont == 1:
+                while True:
+                    break
+            else:
+                break
+    elif fazer == 2 :
+        while True:
+            itemex = input("Digite o item que deseja excluir")
+            lista.remove(itemex)
+            conti = int(input("Deseja continuar excluindo\n1-Sim        2-Não"))
+            if conti == 1:
+                while True:
+                    break
+            elif conti == 2:
+                break
+            else:
+                print("item inválido...")
+                time.sleep(5)
+                break
+    elif fazer == 3:
+        print(lista)
+        time.sleep(5)
+        fazer = int(input("O que deseja fazer \n 1- Adiconar um item       2-Excluir item        3-Ver lista\n"))
+    else:
+        while True:
+            print("Item inválido")
+            break
