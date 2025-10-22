@@ -1,10 +1,11 @@
 import time
 lista = []
+espera = "....."
 while True:
     fazer = int(input("O que deseja fazer \n 1- Adiconar um item       2-Excluir item        3-Ver lista\n"))
     if fazer == 1:
         while True:
-            itemnv = input("Escreva o novo item")
+            itemnv = input("Escreva o novo item: ")
             lista.append(itemnv)
             print(lista)
             cont = int(input("Deseja adicionar mais um item?\n 1-Sim 2-Não"))
@@ -16,16 +17,25 @@ while True:
     elif fazer == 2 :
         while True:
             itemex = input("Digite o item que deseja excluir")
-            lista.remove(itemex)
-            conti = int(input("Deseja continuar excluindo\n1-Sim        2-Não"))
-            if conti == 1:
-                while True:
+            try:
+                lista.remove(itemex)
+                conti = int(input("Deseja continuar excluindo\n1-Sim        2-Não"))
+                if conti == 1:
+                    while True:
+                        break
+                elif conti == 2:
                     break
-            elif conti == 2:
-                break
-            else:
-                print("item inválido...")
-                time.sleep(5)
+                else:
+                    print("Escolha inválida\nTente novamente")
+                    for i in espera:
+                        print(i)
+                        time.sleep(1)
+                    break
+            except:
+                print("Item inválido\nTente novamente")
+                for i in espera:
+                    print(i)
+                    time.sleep(1)
                 break
     elif fazer == 3:
         print(lista)
@@ -33,5 +43,8 @@ while True:
         fazer = int(input("O que deseja fazer \n 1- Adiconar um item       2-Excluir item        3-Ver lista\n"))
     else:
         while True:
-            print("Item inválido")
+            print("Item inválido\n Tente novamente")
+            for i in espera:
+                print(i)
+                time.sleep(1)
             break
