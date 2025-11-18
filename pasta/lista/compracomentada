@@ -1,0 +1,48 @@
+    if fazer == 1:  # se a pessoa quiser adicionar
+        while True:  # outro loop pra adicionar vários itens
+            itemnv = input("Escreva o novo item: ")  # pega o nome do item
+            lista.append(itemnv)  # coloca o item na lista
+            print(lista)  # mostra a lista
+            cont = int(input("Deseja adicionar mais um item?\n 1-Sim 2-Não"))  # pergunta se quer continuar adicionado
+            if cont == 1:
+                while True:  # cria um loop que, ao quebrar, volta ao menu de adicionar
+                    break  # sai do while
+            else:
+                break  # sai do while de adicionar
+
+    elif fazer == 2:  # se a pessoa quiser excluir
+        while True:  # loop pra excluir vários itens
+            itemex = input("Digite o item que deseja excluir")  # pega o item que quer remover
+            try:
+                lista.remove(itemex)  # tenta remover o item
+                conti = int(input("Deseja continuar excluindo\n1-Sim        2-Não"))  # pergunta se continua
+                if conti == 1:
+                    while True:  # igual antes, não faz nada
+                        break
+                elif conti == 2:
+                    break  # sai do loop de excluir
+                else:
+                    print("Escolha inválida\nTente novamente")  # pessoa digitou algo errado
+                    for i in espera:  # mostra os pontinhos devagar
+                        print(i)
+                        time.sleep(1)
+                    break
+            except:  # se o item não existir na lista
+                print("Item inválido\nTente novamente")
+                for i in espera:  # mostra os pontinhos devagar
+                    print(i)
+                    time.sleep(1)
+                break  # sai do loop de excluir errado
+
+    elif fazer == 3:  # se a pessoa quiser ver a lista
+        print(lista)  # mostra a lista
+        time.sleep(5)  # espera 5 segundos
+        fazer = int(input("O que deseja fazer \n 1- Adiconar um item       2-Excluir item        3-Ver lista\n"))  # pergunta de novo
+
+    else:  # se a pessoa digitou algo errado
+        while True:
+            print("Item inválido\n Tente novamente")  # avisa que tá errado
+            for i in espera:
+                print(i)
+                time.sleep(1)
+            break  # sai do loop
